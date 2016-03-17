@@ -1,0 +1,3 @@
+-Set up server-side socket.io interface  (/bin/www/ && /controller/app.js/)
+-Set up client-side socket.io interface  (/public/javascripts/dbcontrol.js/)
+-Make sure client-side js is loading on web page
