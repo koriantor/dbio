@@ -6,8 +6,8 @@
 
 var app = require('../controller/app');
 var debug = require('debug')('dbio:server');
-var http = require('http');
-var io = require('socket.io')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 // TODO: Set up proper socket.io server/interface
 
 /** ===================================================
