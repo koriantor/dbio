@@ -1,3 +1,6 @@
--Set up server-side socket.io interface  (/bin/www/ && /controller/app.js/)
--Set up client-side socket.io interface  (/public/javascripts/dbcontrol.js/)
--Make sure client-side js is loading on web page
+-Make dummy db data
+-Make controller talk with model (db)
+-Write basic db report event (client<->controller<-model)
+-Make advanced db access interface
+-Re-write db access for safe access (remove SQL injection vulnerabilities)
+-Make server run on https

@@ -1,6 +1,11 @@
-// TODO: Make sure this is loading properly on webpage.
-var io = require('socket.io-client');
+var socket = io.connect("http://localhost:3000");
 
 function handleClick() {
-    io.emit('access');
+    console.log("Sending 'clientSent' event to server");
+    socket.emit('clientSent');
 }
+
+socket.on('serverConfirmation', function() {
+   console.log("Received confirmation emitted from server.");
+});
+

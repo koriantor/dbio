@@ -58,8 +58,27 @@ app.use(function(err, req, res, next) {
   });
 });
 
-io.on('access', function() {
-    dbio.talkToModel(true);
-});
-
 module.exports = app;
+module.exports.eventHandler = function(socket) {
+
+    console.log("Entered event handler");
+
+    socket.on('clientSent', function() {
+        console.log("Received clientSent event from client");
+        socket.emit('serverConfirmation');
+    });
+
+    socket.on('access', function talkToController() {
+
+    });
+};
+
+
+
+
+
+
+
+
+
+

@@ -6,9 +6,8 @@
 
 var app = require('../controller/app');
 var debug = require('debug')('dbio:server');
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
-// TODO: Set up proper socket.io server/interface
+var server = require('http').Server(app);     // Create Http Server TODO: modify for https
+var io = require('socket.io')(server);
 
 /** ===================================================
  * Get port from environment and store in Express.
@@ -18,14 +17,8 @@ var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /** ===================================================
- * Create HTTP server.
- * ==================================================== */
-
-var server = http.createServer(app);
-
-/**
  * Listen on provided port, on all network interfaces.
- */
+ * ==================================================== */
 
 server.listen(port);
 server.on('error', onError);
@@ -90,3 +83,5 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+io.on('connection', app.eventHandler);

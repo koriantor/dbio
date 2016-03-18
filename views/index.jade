@@ -1,5 +1,6 @@
 extends layout
 block scripts
+    script(src="/socket.io/socket.io.js")
     script(src="/javascripts/dbcontrol.js")
 block content
-    button(onclick=handleClick) Click here for backend access
+    button(onclick="handleClick()") Click here for backend access
